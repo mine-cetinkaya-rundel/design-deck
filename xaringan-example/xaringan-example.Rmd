@@ -1,0 +1,56 @@
+---
+title: "Dreaming of the outdoors"
+subtitle: "A short presentation"  
+author: "Mine Çetinkaya-Rundel"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#5C7144",
+  secondary_color = "#FF9375",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+```{r include=FALSE}
+library(tidyverse)
+
+penguins <- read_csv("https://raw.githubusercontent.com/allisonhorst/penguins/master/data/penguins_size.csv")
+```
+
+
+background-image: url(images/theme.jpg)
+
+---
+class: center, middle
+
+# A plot!
+
+---
+
+```{r fig.height=6, fig.width=10, warning=FALSE}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species), size = 3, alpha = 0.8) +
+  theme_xaringan(background_color = "#FFFFFF") + #<<
+  scale_xaringan_color_discrete() + #<<
+  labs(title = "Penguin size, Palmer Station LTER",
+       subtitle = "Flipper length and body mass for Adelie, Chinstrap and Gentoo Penguins",
+       x = "Flipper length (mm)", y = "Body mass (g)",
+       color = "Penguin species", shape = "Penguin species")
+```
+
