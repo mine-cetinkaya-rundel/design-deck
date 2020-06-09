@@ -7,6 +7,7 @@ Slides and materials for the "Designing a slide deck" talk.
 ### Technology
 
 - [xaringan](https://github.com/yihui/xaringan)
+- [Keynote](https://support.apple.com/en-gb/keynote) (on Mac)
 
 ### Theme
 
